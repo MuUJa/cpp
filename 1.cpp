@@ -46,6 +46,7 @@ class String
     friend ostream & operator<< (ostream &, const String &);
     friend const String operator+ (const String &, const String &);
     friend const String operator* (const String &, const int &);
+    friend const String & operator+= (const String &, const String &);
 };
 
 ostream & operator<< (ostream &os, const String & s)
@@ -68,6 +69,12 @@ const String operator+ (const String & l, const String & s)
         return tmp;
     }
 
+String & operator+= (String & s, const String & a)
+{
+    s = s + a;
+    return s;
+}
+
 const String operator* (const String & s, const int & n)
     {
         String tmp;
@@ -82,7 +89,6 @@ const String operator* (const String & s, const int & n)
 int main()
 {
     String s = "Hello";
-    cout << " world" + s << endl;
+    cout << s + " world" << endl;
     cout << String("_") * 20;
-
 }
