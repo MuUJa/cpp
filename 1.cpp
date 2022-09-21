@@ -42,7 +42,14 @@ class String
     {
         delete [] buffer;
     }
-
+    String & operator= (const String & s)
+    {
+        size = s.size;
+        buffer = new char[size + 1];
+        for (int i = 0; i <= size; i++)
+            *(buffer + i) = *(s.buffer + i);
+    }
+    
     friend ostream & operator<< (ostream &, const String &);
     friend const String operator+ (const String &, const String &);
     friend const String operator* (const String &, const int &);
