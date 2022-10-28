@@ -111,7 +111,7 @@ ostream & operator<< (ostream & o, TDeque<T> Q)
         else
         {
             for (int i = Q.start; i != Q.end; i = (i + 1) % Q.size)
-                o << Q.buffer[i] << " -> ";
+                o << Q.buffer[i] << " <- ";
             o << Q.buffer[Q.end];
         }
         o << '\n';
